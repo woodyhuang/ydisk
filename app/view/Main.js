@@ -1,50 +1,55 @@
 Ext.define('YDisk.view.Main', {
-    extend: 'Ext.tab.Panel',
+    extend: 'Ext.NavigationView',
     xtype: 'main',
+    id: 'mainView',
     requires: [
-        'Ext.TitleBar',
-        'Ext.Video'
+        'Ext.dataview.List',
+        'Ext.data.Store'
     ],
     config: {
-        tabBarPosition: 'bottom',
-
-        items: [
-            {
-                title: 'Welcome',
-                iconCls: 'home',
-
-                styleHtmlContent: true,
-                scrollable: true,
-
-                items: {
-                    docked: 'top',
-                    xtype: 'titlebar',
-                    title: 'Welcome to Sencha Touch 2'
-                },
-
-                html: [
-                    "You've just generated a new Sencha Touch 2 project. What you're looking at right now is the ",
-                    "contents of <a target='_blank' href=\"app/view/Main.js\">app/view/Main.js</a> - edit that file ",
-                    "and refresh to change what's rendered here."
-                ].join("")
-            },
-            {
-                title: 'Get Started',
-                iconCls: 'action',
-
-                items: [
-                    {
-                        docked: 'top',
-                        xtype: 'titlebar',
-                        title: 'Getting Started'
+        autoDestroy: false,
+        fullscreen: true,
+        
+        navigationBar: {
+            //ui: 'sencha',
+            items: [
+                {
+                    xtype: 'button',
+                    iconCls: 'add',
+                    id: 'addButton',
+                    align: 'right',
+                    hideAnimation: Ext.os.is.Android ? false : {
+                        type: 'fadeOut',
+                        duration: 200
                     },
-                    {
-                        xtype: 'video',
-                        url: 'http://av.vimeo.com/64284/137/87347327.mp4?token=1330978144_f9b698fea38cd408d52a2393240c896c',
-                        posterUrl: 'http://b.vimeocdn.com/ts/261/062/261062119_640.jpg'
+                    showAnimation: Ext.os.is.Android ? false : {
+                        type: 'fadeIn',
+                        duration: 200
                     }
-                ]
+                }
+            ]
+        },
+        
+        items: [{
+            id: 'listView',
+            title: 'Accounts',
+            xtype: 'list',
+            itemTpl: '{title}',
+            data: [
+                { title: 'Item 1' },
+                { title: 'Item 2' },
+                { title: 'Item 3' },
+                { title: 'Item 4' }
+            ],
+            handler: function() {
+                // use the push() method to push another view. It works much like
+                // add() or setActiveItem(). it accepts a view instance, or you can give it
+                // a view config.
+                view.push({
+                    title: 'Second',
+                    html: 'Second view!'
+                });
             }
-        ]
+        }]
     }
 });
