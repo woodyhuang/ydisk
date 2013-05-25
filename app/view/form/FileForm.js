@@ -5,7 +5,8 @@ Ext.define('YDisk.view.form.FileForm', {
     requires: [
         'Ext.form.Panel',
         'Ext.form.FieldSet',
-        'Ext.field.Text'
+        'Ext.field.Text',
+        'Ext.field.File'
     ],
 
     config: {
@@ -18,63 +19,27 @@ Ext.define('YDisk.view.form.FileForm', {
                 items: [
                     {
                         xtype: 'fieldset',
-                        defaults: {
-                            labelWidth: '35%'
-                        },
-                        title: 'Information',
+                        title: 'Select A File',
                         items: [
                             {
-                                xtype: 'textfield',
-                                label: 'First Name',
-                                name: 'firstName'
-                            },
-                            {
-                                xtype: 'textfield',
-                                label: 'Last Name',
-                                name: 'lastName'
-                            },
-                            {
-                                xtype: 'textfield',
-                                label: 'Title',
-                                name: 'title'
+                                xtype: 'file',
+                                name: 'file'
                             }
                         ]
                     },
                     {
                         xtype: 'fieldset',
+                        /*
                         defaults: {
                             labelWidth: '35%'
                         },
-                        title: 'Contact Information',
+                        */
+                        title: 'File Name',
                         items: [
                             {
                                 xtype: 'textfield',
-                                label: 'Telephone',
-                                name: 'telephone'
-                            }
-                        ]
-                    },
-                    {
-                        xtype: 'fieldset',
-                        title: 'Address',
-                        defaults: {
-                            labelWidth: '35%'
-                        },
-                        items: [
-                            {
-                                xtype: 'textfield',
-                                label: 'City',
-                                name: 'city'
-                            },
-                            {
-                                xtype: 'textfield',
-                                label: 'State',
-                                name: 'state'
-                            },
-                            {
-                                xtype: 'textfield',
-                                label: 'Country',
-                                name: 'country'
+                                //label: 'File Name',
+                                name: 'name'
                             }
                         ]
                     }

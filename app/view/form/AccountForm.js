@@ -5,7 +5,9 @@ Ext.define('YDisk.view.form.AccountForm', {
     requires: [
         'Ext.form.Panel',
         'Ext.form.FieldSet',
-        'Ext.field.Text'
+        'Ext.field.Text',
+        'Ext.field.Password',
+        'Ext.field.Select'
     ],
 
     config: {
@@ -18,63 +20,46 @@ Ext.define('YDisk.view.form.AccountForm', {
                 items: [
                     {
                         xtype: 'fieldset',
+                        /*
                         defaults: {
                             labelWidth: '35%'
                         },
-                        title: 'Information',
+                        */
+                        title: 'Account Info',
                         items: [
-                            {
-                                xtype: 'textfield',
-                                label: 'First Name',
-                                name: 'firstName'
-                            },
-                            {
-                                xtype: 'textfield',
-                                label: 'Last Name',
-                                name: 'lastName'
-                            },
                             {
                                 xtype: 'textfield',
                                 label: 'Title',
                                 name: 'title'
-                            }
-                        ]
-                    },
-                    {
-                        xtype: 'fieldset',
-                        defaults: {
-                            labelWidth: '35%'
-                        },
-                        title: 'Contact Information',
-                        items: [
+                            },
                             {
-                                xtype: 'textfield',
-                                label: 'Telephone',
-                                name: 'telephone'
-                            }
-                        ]
-                    },
-                    {
-                        xtype: 'fieldset',
-                        title: 'Address',
-                        defaults: {
-                            labelWidth: '35%'
-                        },
-                        items: [
-                            {
-                                xtype: 'textfield',
-                                label: 'City',
-                                name: 'city'
+                                xtype: 'selectfield',
+                                label: 'Disk Type',
+                                name: 'src',
+                                options: [
+                                    {
+                                        text : 'Baidu Cloud Disk',
+                                        value: 'baidu'
+                                    },
+                                    {
+                                        text : 'Amazon Cloud Disk',
+                                        value: 'amazon'
+                                    },
+                                    {
+                                        text : 'Dropbox',
+                                        value: 'dropbox'
+                                    }
+                                ]
                             },
                             {
                                 xtype: 'textfield',
-                                label: 'State',
-                                name: 'state'
+                                label: 'Username',
+                                name: 'name'
                             },
                             {
-                                xtype: 'textfield',
-                                label: 'Country',
-                                name: 'country'
+                                xtype: 'passwordfield',
+                                label: 'Password',
+                                name: 'password'
                             }
                         ]
                     }
