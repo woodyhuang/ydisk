@@ -12,6 +12,8 @@ Ext.application({
         'Ext.MessageBox'
     ],
 
+    models: ['Account'],
+    stores: ['Accounts'],
     views: ['Main'],
 
     icon: {

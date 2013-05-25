@@ -1,0 +1,14 @@
+[
+    {
+        "title": "Baidu Disk",
+        "name": "woody",
+        "src": "baidu",
+        "password": "123456"
+    },
+    {
+        "title": "Amazon Disk",
+        "name": "woody",
+        "src": "amazon",
+        "password": "123456"
+    }
+]
