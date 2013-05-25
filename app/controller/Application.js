@@ -13,12 +13,10 @@ Ext.define('YDisk.controller.Application', {
         },
 
         control: {
-            /*
             main: {
-                push: 'onMainPush',
+                //push: 'onMainPush',
                 pop: 'onMainPop'
             },
-            */
             addButton: {
                 tap: 'onAdd'
             },
@@ -35,10 +33,12 @@ Ext.define('YDisk.controller.Application', {
         var addButton = this.getAddButton();
 		console.debug('onMainPush, addBtn:', addButton);
     },
-    onMainPop: function(view, item) {
-		console.debug('onMainPop, item:', item);
-    },
     */
+
+    onMainPop: function(view, item) {
+        this.hideSaveBtn();
+    },
+    
     onAccountSelect: function(list, index, node, record) {
         var addButton = this.getAddButton();
         
@@ -63,8 +63,10 @@ Ext.define('YDisk.controller.Application', {
         var currentView = this.getMain().getActiveItem();
         if ('files' == currentView.xtype) {
             this.showFileForm();
+            this.showSaveBtn();
         } else if ('accounts' == currentView.xtype) {
             this.showAccountForm();
+            this.showSaveBtn();
         } else {
             Ext.Msg.alert('Error! Please restart your app.');
         }
@@ -82,6 +84,41 @@ Ext.define('YDisk.controller.Application', {
             this.fileForm = Ext.create('YDisk.view.form.FileForm');
         }
         this.getMain().push(this.fileForm);
-    }
+    },
 
+    onSave: function(){
+        var currentView = this.getMain().getActiveItem();
+        if ('file-form' == currentView.xtype) {
+            this.saveFile();
+            this.getMain().pop();
+        } else if ('account-form' == currentView.xtype) {
+            this.saveAccount();
+            this.getMain().pop();
+        } else {
+            Ext.Msg.alert('Error! Please restart your app.');
+        }
+    },
+
+    saveFile: function(){
+        this.fileForm.saveRecord();
+        // update files
+    },
+
+    saveAccount: function(){
+        this.accountForm.saveRecord();
+        // update accounts
+    },
+
+    showSaveBtn: function(){
+        this.getAddButton().hide();
+        this.getSaveButton().show();
+    },
+
+    hideSaveBtn: function() {
+        var saveBtn = this.getSaveButton();
+        if (!saveBtn.isHidden()) {
+            this.getAddButton().show();
+            this.getSaveButton().hide();
+        }
+    }
 });

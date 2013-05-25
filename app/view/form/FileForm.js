@@ -62,6 +62,8 @@ Ext.define('YDisk.view.form.FileForm', {
     saveRecord: function() {
         var formPanel = this.down('formpanel'),
             record = formPanel.getRecord();
+        
+        console.debug('file form save  -  record:', record);
 
         formPanel.updateRecord(record);
 

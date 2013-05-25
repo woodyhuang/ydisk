@@ -23,10 +23,12 @@ Ext.define('YDisk.view.Main', {
                     cls: 'account-add',
                     id: 'addButton',
                     align: 'right',
+                    /*
                     hideAnimation: Ext.os.is.Android ? false : {
                         type: 'fadeOut',
                         duration: 200
                     },
+                    */
                     showAnimation: Ext.os.is.Android ? false : {
                         type: 'fadeIn',
                         duration: 200
@@ -39,10 +41,12 @@ Ext.define('YDisk.view.Main', {
                     //ui: 'sencha',
                     align: 'right',
                     hidden: true,
+                    /*
                     hideAnimation: Ext.os.is.Android ? false : {
                         type: 'fadeOut',
                         duration: 200
                     },
+                    */
                     showAnimation: Ext.os.is.Android ? false : {
                         type: 'fadeIn',
                         duration: 200
