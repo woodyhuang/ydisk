@@ -11,7 +11,7 @@ Ext.define('YDisk.view.form.AccountForm', {
     ],
 
     config: {
-        title: 'Add New Account',
+        title: 'New Account',
         layout: 'fit',
 
         items: [
@@ -34,7 +34,7 @@ Ext.define('YDisk.view.form.AccountForm', {
                             },
                             {
                                 xtype: 'selectfield',
-                                label: 'Disk Type',
+                                label: 'Type',
                                 name: 'src',
                                 options: [
                                     {

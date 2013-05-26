@@ -52,8 +52,20 @@ Ext.define('YDisk.controller.Application', {
         // update file data
         //this.files.setRecord(record);
         var store = this.files.getStore('Files');
-        store.applyData([{'name': record.data['title'] + ' - f1'},
-                        {'name': record.data['title'] + ' - f2'}]);
+        
+        var fs = [{'name': 'readme.txt'},
+                  {'name': 'guide.html'},
+                 ]
+        
+        if ('Baidu Disk' == record.data['title']) {
+            fs = [{'name': 'java.exe'},
+                  {'name': 'index.html'},
+                  {'name': 'TODO'},
+                  {'name': 'YDisk.pptx'},
+                  {'name': 'YDisk Framework Design.docx'},
+                 ]
+        }
+        store.applyData(fs);
 
         // Push the show contact view into the navigation view
         this.getMain().push(this.files);
